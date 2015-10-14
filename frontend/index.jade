@@ -7,8 +7,8 @@ html(lang="en")
 		link(href="styles/css/libs.css", rel="stylesheet")
 		link(href="styles/css/style.css", rel="stylesheet")
 	body
-		block content
+		ui-view
 		script(src="javascripts/libs.js")
 		script(src='javascripts/main.js')
 		script.
-			angular.bootstrap(document, ['projects-app']);
+			angular.bootstrap(document, ['projectsApp']);

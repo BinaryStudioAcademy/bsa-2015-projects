@@ -1,14 +1,14 @@
 module.exports = function(grunt) {
 	var config = {
 		pkg: grunt.file.readJSON('package.json'),
-		javascripts: ['frontend/javascripts/**/*.js'],
+		javascripts: ['frontend/**/*.js'],
 		server_js: ['backend/**/*.js'],
-		views: ['frontend/views/**/*.jade'],
-		templates: ['frontend/javascripts/**/*.jade'],
-		stylesheets: ['frontend/styles/*.styl'],
+		index: ['frontend/index.jade'],
+		templates: ['frontend/**/*.jade', '!frontend/index.jade'],
+		stylesheets: ['frontend/**/*.styl'],
 
 		jshint: {
-			client: ['Gruntfile.js', '<%= javascripts %>', '!frontend/javascripts/libs/**/*.js'],
+			client: ['Gruntfile.js', '<%= javascripts %>'],
 			server: ['<%= server_js %>'],
 			options: {
 				sub: true,
@@ -40,22 +40,26 @@ module.exports = function(grunt) {
 				files: ['<%= templates %>'],
 				tasks: ['jade:templates']
 			},
+			jade_index: {
+				files: ['<%= index %>'],
+				tasks: [ 'jade:index' ]
+			}
 		},
 
 		jade: {
 			templates: {
 				files: [{
 					expand: true,
-					cwd: 'frontend/javascripts/',
-					src: ['**/*.jade'],
+					cwd: 'frontend/',
+					src: ['**/*.jade', '!index.jade'],
 					dest: 'public/templates/',
 					ext: '.html'
 				}],
 			},
-			views: {
+			index: {
 				files: [{
 					expand: true,
-					cwd: 'frontend/views/',
+					cwd: 'frontend/',
 					src: ['index.jade'],
 					dest: 'public/',
 					ext: '.html'
@@ -67,7 +71,6 @@ module.exports = function(grunt) {
 			compile: {
 				options: {
 					'include css': true,
-					'paths': ['frontend/styles/'],
 					'compress': true
 				},
 				files: {
@@ -88,7 +91,7 @@ module.exports = function(grunt) {
 			images: {
 				files: [{
 					expand: true,
-					cwd: 'frontend/images',
+					cwd: 'frontend/components/images',
 					src: ['**'],
 					dest: 'public/images'
 				}]
@@ -96,17 +99,9 @@ module.exports = function(grunt) {
 			resources: {
 				files: [{
 					expand: true,
-					cwd: 'frontend/resources',
+					cwd: 'frontend/components/resources',
 					src: ['**'],
 					dest: 'public'
-				}]
-			},
-			js: {
-				files: [{
-					expand: true,
-					cwd: 'frontend/javascripts/',
-					src: ['**'],
-					dest: 'public/javascripts/'
 				}]
 			}
 		},
@@ -129,7 +124,7 @@ module.exports = function(grunt) {
 		browserify: {
 			my: {
 				dest: 'public/javascripts/main.js',
-				src: ['frontend/javascripts/**/*.js']
+				src: ['frontend/**/*.js']
 			}
 		},
 
