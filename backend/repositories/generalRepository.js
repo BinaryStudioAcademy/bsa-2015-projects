@@ -31,4 +31,9 @@ Repository.prototype.getById = function(id, callback){
 	query.exec(callback);
 };
 
+Repository.prototype.removeAll = function(callback) {
+	var query = this.model.remove();
+	query.exec(callback);
+};
+
 module.exports = Repository;
