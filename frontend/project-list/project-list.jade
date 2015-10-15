@@ -1,0 +1,6 @@
+.row
+	.col-md-6.col-md-offset-3
+		.page-header
+			h1 Binary studio projects
+		.project-container(ng-repeat="project in vm.projects")
+			span.project-name {{ project.name }}
