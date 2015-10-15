@@ -9,7 +9,7 @@ casual.define('user_', function() {
 	var surname = casual.last_name;
 	var avatar = casual.word; // casual.js haven't avatar or pictures
 	return {
-		user_id: id,
+		_id: id,
 		name: name,
 		surname: surname,
 		avatar: avatar

@@ -33,9 +33,9 @@ var generate = function(type, count, toBeCleaned, callback) {
 };
 
 async.waterfall([
-	generate.bind(null, 'user', 20),
-	generate.bind(null, 'project', 2),
-	generate.bind(null, 'technology', 5)
+	generate.bind(null, 'user', 10),
+	generate.bind(null, 'technology', 5),
+	generate.bind(null, 'project', 20),
 	
 ], function(err, data){
 	console.log('async', err);

@@ -3,9 +3,9 @@ var Repository = function(){
 };
 
 Repository.prototype.add = function(data, callback){
-	var model = this.model;
-	var newitem = new model(data);
-	newitem.save(callback);
+	this.model.create(data, function(err, data){
+		callback(err, data);
+	});
 };
 
 Repository.prototype.update = function(id, body, callback){

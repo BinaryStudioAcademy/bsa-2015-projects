@@ -3,14 +3,14 @@ var context = require('./units/context');
 var utils = require('./units/utils');
 
 casual.define('project_id_', function(entityName, unique) {
-	return utils.findId('board', entityName, unique);
+	return utils.findId('project', entityName, unique);
 });
 
 casual.define('project_', function() {
 	var id = casual.mongo_id;
 	context.project_ids.push(id);
 	return {
-		project_id: id,
+		_id: id,
 		name: casual.word,
 		description: casual.description,
 		begin: casual.date(format = 'YYYY-MM-DD'),
