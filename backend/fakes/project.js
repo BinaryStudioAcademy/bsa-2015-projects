@@ -7,9 +7,10 @@ casual.define('project_id_', function(entityName, unique) {
 });
 
 casual.define('project_', function() {
-	var id = casual.project_id_('project');
+	var id = casual.mongo_id;
+	context.project_ids.push(id);
 	return {
-		_id: id,
+		project_id: id,
 		name: casual.word,
 		description: casual.description,
 		begin: casual.date(format = 'YYYY-MM-DD'),

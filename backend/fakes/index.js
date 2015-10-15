@@ -6,14 +6,14 @@ var dbConnectionHandler = require('../db/dbconnect');
 var repositories = {
 	user: require('../repositories/userRepository'),
 	project: require('../repositories/projectRepository'),
-	technologies: require('../repositories/technologiesRepository')
+	technology: require('../repositories/TechnologyRepository')
 };
 
 require('./units/helpers');
 
 require('./project');
 require('./user');
-require('./technologies');
+require('./technology');
 
 
 var generate = function(type, count, toBeCleaned, callback) { 
@@ -33,9 +33,10 @@ var generate = function(type, count, toBeCleaned, callback) {
 };
 
 async.waterfall([
-	generate.bind(null, 'user', 100),
-	generate.bind(null, 'project', 15),
-	generate.bind(null, 'technologies', 10)
+	generate.bind(null, 'user', 20),
+	generate.bind(null, 'project', 2),
+	generate.bind(null, 'technology', 5)
+	
 ], function(err, data){
 	console.log('async', err);
 	process.exit();
