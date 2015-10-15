@@ -9,16 +9,27 @@ app.config(['$stateProvider', '$urlRouterProvider',
 		$urlRouterProvider.otherwise('home');
 		
 		$stateProvider
-		.state('home',{
-			url: '',
-			templateUrl: './templates/project-list/project-list.html',
-			controller: 'ProjectListController',
-			controllerAs: 'vm',
-			resolve: {
-				projectsPromise: ['projects', function(projects){
-					return projects.getAll();
-				}]
-			}
-		});
+			.state('home',{
+				url: '',
+				templateUrl: './templates/project-list/project-list.html',
+				controller: 'ProjectListController',
+				controllerAs: 'vm',
+				resolve: {
+					projectsPromise: ['projects', function(projects){
+						return projects.getAll();
+					}]
+				}
+			})
+			.state('projectDetail',{
+				url: '/project/10',
+				templateUrl: './templates/project/project-detail.html',
+				controller: 'ProjectDetailController',
+				controllerAs: 'vm'
+				// resolve: {
+				// 	projectsPromise: ['projects', function(projects){
+				// 		return projects.getProject(id);
+				// 	}]
+				// }
+			});
 	}
 ]);
