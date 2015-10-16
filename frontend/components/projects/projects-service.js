@@ -1,7 +1,7 @@
 angular.module('projectsApp')
 .factory('projects', ['$http', function ($http) {
     var service = {
-        projects: []
+        projects: [],
         projectDetail: {}
     };
 
@@ -16,9 +16,11 @@ angular.module('projectsApp')
         return $http.get('/api/projects/' + id).success(function(data) {
             angular.copy(data, service.projectDetail);
             console.table(data);
+        })
+        .error(function(error){
+            console.log("can't get info about project #", id);
         });
     };
-
 
     return service;
 }]);
