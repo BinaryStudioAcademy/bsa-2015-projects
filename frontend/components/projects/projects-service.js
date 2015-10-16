@@ -12,12 +12,9 @@ angular.module('projectsApp')
         });
     };
 
-    service.getProject = function(id, refresh) {
-        // if (!refresh && service.projectDetail[id]) {
-        //     return service.projectDetail[id]
-        // }
+    service.getProject = function(id) {
         return $http.get('/api/projects/' + id).success(function(data) {
-            angular.copy(data, service.projectDetail[id]);
+            angular.copy(data, service.projectDetail);
             console.table(data);
         });
     };

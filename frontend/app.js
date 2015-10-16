@@ -21,10 +21,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
 				}
 			})
 			.state('projectDetail',{
-				url: '/project/10',
+				url: '/project',
 				templateUrl: './templates/project/project-detail.html',
 				controller: 'ProjectDetailController',
 				controllerAs: 'vm'
+
 				// resolve: {
 				// 	projectsPromise: ['projects', function(projects){
 				// 		return projects.getProject(id);
