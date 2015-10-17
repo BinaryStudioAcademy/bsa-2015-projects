@@ -4,3 +4,12 @@
 			h1 Binary studio projects
 		.project-container(ng-repeat="project in vm.projects")
 			span.project-name {{ project.name }}
+			p.project-date Begin: {{project.begin | date:'shortDate'}}
+				span  EndDate: {{project.end | date: 'shortDate'}}
+				strong#in-progres(ng-hide="project.stage == 'done'" )  {{project.stage}}
+
+			.description-container
+				p.description {{project.description | cut:true:450}}
+			button(class='btn pull-right') Show more
+			.tech Technologies:
+				p(ng-repeat='tech in project.technologies')  {{tech}}

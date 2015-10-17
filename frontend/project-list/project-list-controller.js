@@ -8,6 +8,7 @@
 		vm = this;
 		vm.projects = projects.projects;
 
+
 		// activate();
 		
 		// function activate() {

@@ -11,7 +11,7 @@ var projectSchema = new Schema({
 	tags : [],
 	technologies : [ {type : mongoose.Schema.ObjectId, ref : 'Technology'} ],
 	stage : String,
-	screenshots : []
+	screenshots : [String]
 });
 
 module.exports = mongoose.model('Project', projectSchema);
