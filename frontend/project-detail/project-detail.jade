@@ -34,6 +34,15 @@
 			.detail-block.row
 				.title.col-md-3 Screenshots
 				.value.col-md-9()
-					img.screenshots(ng-repeat="technology in vm.projectDetail.screenshots track by $index" 
-						ng-src="technology" alt="screenshot_{{$index}}") 
+					img.screenshots(ng-repeat="screen in vm.projectDetail.screenshots track by $index" 
+						ng-src="screen" alt="screenshot_{{$index}}") 
+
+			.detail-block.row
+				.title.col-md-3 Users on project
+				.value.col-md-9()
+					.tags(ng-repeat="user in vm.projectDetail.users track by $index" ng-bind="user.name") 
+
+			.button-wrap
+				button.create(ng-click="") Create new
+				button.edit(ng-click="") Edit
 
