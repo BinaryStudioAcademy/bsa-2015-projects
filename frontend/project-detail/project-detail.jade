@@ -1,21 +1,21 @@
-.row
+.detail-page.row
 	.col-md-10.col-md-offset-1
 		.page-header
-			h1 Project {{vm.projectDetail.id}} details
+			h1 Project # {{vm.projectDetail._id}} details
 		.page-wrap
 			.detail-block.row
 				.title.col-md-3 Name
 				.value.col-md-9(ng-bind="vm.projectDetail.name")
-		.detail-block.row
-			.title.col-md-3 Description
-			.value.col-md-9(ng-bind="vm.projectDetail.description")
+			.detail-block.row
+				.title.col-md-3 Description
+				.value.col-md-9(ng-bind="vm.projectDetail.description")
 
-		.detail-block.row
-			.col-md-6
-				.row
-					.title.col-md-3 Begin
-					.value.col-md-9(ng-bind="vm.projectDetail.begin")
-			.col-md-6
-				.row
-					.title.col-md-3 End
-					.value.col-md-9(ng-bind="vm.projectDetail.end")
+			.detail-block.row
+				.col-md-6
+					.row
+						.title.col-md-3 Begin
+						.value.col-md-9(ng-bind="vm.projectDetail.begin")
+				.col-md-6
+					.row
+						.title.col-md-3 End
+						.value.col-md-9(ng-bind="vm.projectDetail.end")

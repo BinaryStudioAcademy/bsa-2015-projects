@@ -4,3 +4,13 @@
 			h1 Binary studio projects
 		.project-container(ng-repeat="project in vm.projects")
 			a.project-name(ui-sref="project-view({ id: project._id })") {{ project.name }}
+			p.project-date Begin: {{project.begin | date:'shortDate'}}
+				span  EndDate: {{project.end | date: 'shortDate'}}
+				strong#in-progres(ng-hide="project.stage == 'done'" )  {{project.stage}}
+
+			.description-container
+				p.description {{project.description | cut:true:450}}
+			button(class='btn pull-right' ng-click="vm.goToDetail(project._id)") Show more
+			.tech Technologies:
+				p(ng-repeat='tech in project.technologies')  {{tech}}
+
