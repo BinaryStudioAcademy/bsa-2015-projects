@@ -5,17 +5,35 @@
 		.page-wrap
 			.detail-block.row
 				.title.col-md-3 Name
-				.value.col-md-9(ng-bind="vm.projectDetail.name")
+				.value.name.col-md-9(ng-bind="vm.projectDetail.name")
 			.detail-block.row
 				.title.col-md-3 Description
 				.value.col-md-9(ng-bind="vm.projectDetail.description")
+			.detail-block.row
+				.title.col-md-3 Status
+				.value.stage.col-md-9(ng-bind="vm.projectDetail.stage", 
+					ng-class="[vm.projectDetail.stage]")
 
 			.detail-block.row
-				.col-md-6
-					.row
-						.title.col-md-3 Begin
-						.value.col-md-9(ng-bind="vm.projectDetail.begin")
-				.col-md-6
-					.row
-						.title.col-md-3 End
-						.value.col-md-9(ng-bind="vm.projectDetail.end")
+				.title.col-md-3 Begin
+				.value.col-md-9(ng-bind="vm.projectDetail.begin | date:'mediumDate'")
+			.detail-block.border-bottom.row
+				.title.col-md-3 End
+				.value.col-md-9(ng-bind="(vm.projectDetail.end | date:'mediumDate') || '--.--.----'")
+
+			.detail-block.row
+				.title.col-md-3 Tags
+				.value.col-md-9()
+					.tags(ng-repeat="tag in vm.projectDetail.tags track by $index" ng-bind="tag") 
+
+			.detail-block.row
+				.title.col-md-3 Technologies
+				.value.col-md-9()
+					.tags(ng-repeat="technology in vm.projectDetail.technologies track by $index" ng-bind="technology") 
+
+			.detail-block.row
+				.title.col-md-3 Screenshots
+				.value.col-md-9()
+					img.screenshots(ng-repeat="technology in vm.projectDetail.screenshots track by $index" 
+						ng-src="technology" alt="screenshot_{{$index}}") 
+

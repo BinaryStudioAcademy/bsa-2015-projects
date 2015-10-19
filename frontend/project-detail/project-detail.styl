@@ -1,14 +1,42 @@
 .detail-page
-	background-color: blue
-	.page-wrap
-		border: 1px solid blue
-		
-		.detail-block
-			width: 100%
-			min-height: 30px
+	box-sizing: border-box
 
-			.title
-				font-weight: bold
+.detail-block
+	width: 100%
+	padding: 8px 0
 
-			.value
-				color: #666
+	&.row
+		margin: 0
+
+	&.border-bottom
+		border-bottom: 1px solid #aaa
+
+	.title
+		font-weight: bold
+
+	.value
+		color: #666
+		border: 1px solid rgba(0,0,0, 0.1)
+		min-height: 22px
+
+		&.name
+			text-transform: uppercase
+
+		&.stage
+			&.inProgres
+				color: #089026
+			&.done
+				color: #2436C5
+
+		.tags, .screenshots
+			display: inline-block
+			padding: 2px 8px
+			border: 1px solid #9DB9D2
+			border-radius: 4px
+			margin: 3px 7px 3px 0
+
+		.screenshots
+			background-color: #E5E8B6
+			padding: 0
+			height: 90px
+			width: auto
