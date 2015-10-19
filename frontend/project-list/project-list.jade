@@ -3,4 +3,4 @@
 		.page-header
 			h1 Binary studio projects
 		.project-container(ng-repeat="project in vm.projects")
-			span.project-name {{ project.name }}
+			a.project-name(ui-sref="project-view({ id: project._id })") {{ project.name }}
