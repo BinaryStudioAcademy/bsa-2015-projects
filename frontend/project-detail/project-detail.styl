@@ -1,0 +1,95 @@
+.detail-page
+	box-sizing: border-box
+
+.detail-block
+	width: 100%
+	padding: 8px 0
+
+	&.row
+		margin: 0
+
+	&.border-bottom
+		border-bottom: 1px solid #aaa
+
+	.title
+		font-weight: bold
+
+	.value
+		color: #666
+		border: 1px solid rgba(0,0,0, 0.1)
+		min-height: 22px
+
+		&.name
+			text-transform: uppercase
+
+		&.stage
+			&.inProgres
+				color: #089026
+			&.done
+				color: #2436C5
+
+		.tags, .screenshots
+			display: inline-block
+			padding: 2px 8px
+			border: 1px solid #9DB9D2
+			background-color: #F0F8FF
+			border-radius: 4px
+			margin: 3px 7px 3px 0
+
+		.screenshots
+			background-color: #E5E8B6
+			padding: 0
+			height: 90px
+			width: auto
+
+.button-wrap
+	width: 100%
+	min-height: 30px
+	margin-top: 15px
+	text-align: right
+
+	button
+		min-width: 100px
+		width: auto
+		padding: 5px 10px
+		border-radius: 4px
+		border: 1px solid #999
+		display: inline-block
+		color: #fff
+		background-color: #ccc
+		font-size: 16px
+		cursor: pointer
+		text-align: centr
+		margin-left: 20px
+
+		&:hover
+			color: #fff
+			border-color: #777
+			background-color: #aaa
+
+		&.edit
+			border-color: #218457
+			background-color: #00B060
+
+			&:hover
+				border-color: #00733E
+				background-color: #218457
+
+		&.more
+			border-color: #BF8F30
+			background-color: #FFAA00
+
+			&:hover
+				border-color: #A66F00
+				background-color: #BF8F30		
+
+		&.create
+			border-color: #216477
+			background-color: #057D9F
+
+			&:hover
+				border-color: #025167
+				background-color: #216477
+
+
+

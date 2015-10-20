@@ -1,0 +1,48 @@
+.detail-page.row
+	.col-md-10.col-md-offset-1
+		.page-header
+			h1 Project # {{vm.projectDetail._id}} details
+		.page-wrap
+			.detail-block.row
+				.title.col-md-3 Name
+				.value.name.col-md-9(ng-bind="vm.projectDetail.name")
+			.detail-block.row
+				.title.col-md-3 Description
+				.value.col-md-9(ng-bind="vm.projectDetail.description")
+			.detail-block.row
+				.title.col-md-3 Status
+				.value.stage.col-md-9(ng-bind="vm.projectDetail.stage", 
+					ng-class="[vm.projectDetail.stage]")
+
+			.detail-block.row
+				.title.col-md-3 Begin
+				.value.col-md-9(ng-bind="vm.projectDetail.begin | date:'mediumDate'")
+			.detail-block.border-bottom.row
+				.title.col-md-3 End
+				.value.col-md-9(ng-bind="(vm.projectDetail.end | date:'mediumDate') || '--.--.----'")
+
+			.detail-block.row
+				.title.col-md-3 Tags
+				.value.col-md-9()
+					.tags(ng-repeat="tag in vm.projectDetail.tags track by $index" ng-bind="tag") 
+
+			.detail-block.row
+				.title.col-md-3 Technologies
+				.value.col-md-9()
+					.tags(ng-repeat="technology in vm.projectDetail.technologies track by $index" ng-bind="technology") 
+
+			.detail-block.row
+				.title.col-md-3 Screenshots
+				.value.col-md-9()
+					img.screenshots(ng-repeat="screen in vm.projectDetail.screenshots track by $index" 
+						ng-src="screen" alt="screenshot_{{$index}}") 
+
+			.detail-block.row
+				.title.col-md-3 Users on project
+				.value.col-md-9()
+					.tags(ng-repeat="user in vm.projectDetail.users track by $index" ng-bind="user.name") 
+
+			.button-wrap
+				button.create(ng-click="") Create new
+				button.edit(ng-click="") Edit
+
