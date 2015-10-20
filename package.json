@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsonwebtoken" :"*",
+    "body-parser": "*",
+    "cookies" : "*",
     "express": "^4.13.3",
     "express-api-response": "^0.3.0",
     "grunt": "^0.4.5",

@@ -1,7 +1,9 @@
 var projectRoutes = require('./projectRoutes');
+var me = require('./me');
 
 module.exports = function(app) {
 	return {
-		projectRoutes: projectRoutes(app),
+		me:me(app),
+		projectRoutes: projectRoutes(app)
 	};
 };
