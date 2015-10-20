@@ -2,7 +2,7 @@
 	angular.module('projectsApp')
 	.controller('ProjectListController', ProjectListController);
 
-	ProjectListController.$inject = ['projects', '$state','$http'];
+	ProjectListController.$inject = ['projects', '$state'];
 
 	function ProjectListController(projects, $state) {
 		vm = this;
