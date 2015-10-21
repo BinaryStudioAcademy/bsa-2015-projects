@@ -1,1 +1,3 @@
-h1 {{ vm.message }}
+form(ng-submit="vm.createProject()")
+	input(type="text" placeholder="Name" ng-model="vm.name")
+	button(type="submit") Create

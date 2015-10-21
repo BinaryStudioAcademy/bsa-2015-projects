@@ -18,8 +18,9 @@ module.exports = function(app) {
 		});
 	}, apiResponse);
 
-	app.post('/api/projects/', function(req, res, next) {
+	app.post('/api/projects', function(req, res, next) {
 		projectRepository.add(req.body, function(err, data) {
+			console.log(err);
 			res.data = data;
 			res.err = err;
 			next();
