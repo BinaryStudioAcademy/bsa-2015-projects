@@ -3,8 +3,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		javascripts: ['frontend/**/*.js'],
 		server_js: ['backend/**/*.js'],
-		index: ['frontend/index.jade'],
-		templates: ['frontend/**/*.jade', '!frontend/index.jade'],
+		templates: ['frontend/**/*.jade'],
 		stylesheets: ['frontend/**/*.styl'],
 
 		jshint: {
@@ -39,10 +38,6 @@ module.exports = function(grunt) {
 			jade_templates: {
 				files: ['<%= templates %>'],
 				tasks: ['jade:templates']
-			},
-			jade_index: {
-				files: ['<%= index %>'],
-				tasks: [ 'jade:index' ]
 			}
 		},
 
@@ -51,19 +46,10 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					cwd: 'frontend/',
-					src: ['**/*.jade', '!index.jade'],
+					src: ['**/*.jade'],
 					dest: 'public/templates/',
 					ext: '.html'
 				}],
-			},
-			index: {
-				files: [{
-					expand: true,
-					cwd: 'frontend/',
-					src: ['index.jade'],
-					dest: 'public/',
-					ext: '.html'
-				}]				
 			}
 		},
 
