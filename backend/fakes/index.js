@@ -6,7 +6,7 @@ var dbConnectionHandler = require('../db/dbconnect');
 var repositories = {
 	user: require('../repositories/userRepository'),
 	project: require('../repositories/projectRepository'),
-	technology: require('../repositories/TechnologyRepository')
+	technology: require('../repositories/technologyRepository')
 };
 
 require('./units/helpers');
