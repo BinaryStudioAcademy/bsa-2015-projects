@@ -6,12 +6,11 @@ var app = angular.module('projectsApp', [
 
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
 	function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-		// $locationProvider.html5Mode(true);
-		$urlRouterProvider.otherwise('');
+		$urlRouterProvider.otherwise('projects');
 		
 		$stateProvider
-			.state('home', {
-				url: '',
+			.state('projects', {
+				url: '/projects',
 				templateUrl: './templates/project-list/project-list.html',
 				controller: 'ProjectListController',
 				controllerAs: 'vm',
@@ -23,7 +22,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
 			})
 
 			.state('project-view', {
-				url: '/project/:id/view',
+				url: '/projects/:id/view',
 				templateUrl: './templates/project-detail/project-detail.html',
 				controller: 'ProjectDetailController',
 				controllerAs: 'vm',
@@ -34,6 +33,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
 						return projects.getProject(id);
 					}]
 				}
+			})
+
+			.state('create-project', {
+				url: '/projects/create',
+				templateUrl: './templates/create-project/create-project.html',
+				controller: 'CreateProjectController',
+				controllerAs: 'vm'
 			});
 	}
 ]);
