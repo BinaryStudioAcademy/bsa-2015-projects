@@ -1,10 +1,10 @@
 var connection = require('../db/dbconnect');
 var Repository = require('./generalRepository');
-var Technologie = require('../schemas/techSchema');
+var Technology = require('../schemas/techSchema');
 
 function TechnologyRepository() {
 	Repository.prototype.constructor.call(this);
-	this.model = Technologie;
+	this.model = Technology;
 }
 
 TechnologyRepository.prototype = new Repository();
