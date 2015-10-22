@@ -11,6 +11,7 @@
 		vm.goToDetail = function(id){
 			 $state.go('project-view', {id: id});
 		};
+
 		// activate();
 		
 		// function activate() {

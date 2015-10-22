@@ -8,7 +8,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
 	function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
 		// $locationProvider.html5Mode(true);
 		$urlRouterProvider.otherwise('');
-		
+
 		$stateProvider
 			.state('home', {
 				url: '',
@@ -23,7 +23,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
 			})
 
 			.state('project-view', {
-				url: '/project/:id/view',
+				url: 'project/:id/view',
 				templateUrl: './templates/project-detail/project-detail.html',
 				controller: 'ProjectDetailController',
 				controllerAs: 'vm',
