@@ -8,7 +8,7 @@ var projectSchema = new Schema({
 	end : Date,
 	users : [ {type : mongoose.Schema.ObjectId, ref : 'User'} ],
 	tags : [],
-	technologies : [ {type : mongoose.Schema.ObjectId, ref : 'Technology'} ],
+	technologies : [ {type : mongoose.Schema.ObjectId, ref : 'Technologie'} ],
 	stage : String,
 	screenshots : [String]
 });
