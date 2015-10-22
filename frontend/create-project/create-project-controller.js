@@ -7,10 +7,18 @@
 		vm = this;
 
 		vm.name = "";
+		vm.description="";
+		vm.begin="";
+		vm.end="";
+		vm.tags=[];
 
 		vm.createProject = function() {
 			projects.create({
-				name: vm.name
+				name: vm.name,
+				description: vm.description,
+				begin: vm.begin,
+				end: vm.end,
+				tags: vm.tags
 			});
 
 			$state.go('projects');
