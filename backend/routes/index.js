@@ -10,7 +10,7 @@ module.exports = function(app){
 		res.render('index');
 		User.findOne({
 			email: req.decoded.email
-		}).select('email').exec(function(err, user){
+		}).exec(function(err, user){
 			if (err){
 				throw err;
 			}
