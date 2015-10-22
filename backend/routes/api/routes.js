@@ -1,11 +1,11 @@
 var projectRoutes = require('./projectRoutes');
 var me = require('./me');
-var technologiesRoutes = require('./technologiesRoutes');
+var technologyRoutes = require('./technologyRoutes');
 
 module.exports = function(app) {
 	return {
-		me:me(app),
-		technologiesRoutes:technologiesRoutes(app),
+		me: me(app),
+		technologyRoutes : technologyRoutes(app),
 		projectRoutes: projectRoutes(app)
 	};
 };
