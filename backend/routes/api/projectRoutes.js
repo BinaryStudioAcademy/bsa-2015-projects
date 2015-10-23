@@ -18,11 +18,18 @@ module.exports = function(app) {
 		});
 	}, apiResponse);
 
-	app.post('/api/projects/', function(req, res, next) {
-		projectRepository.add(req.body, function(err, data) {
-			res.data = data;
-			res.err = err;
-			next();
-		});
+	app.post('/api/projects', function(req, res, next) {
+		var name = req.body.name;
+		var description = req.body.description;
+		if (name.length!==0 && description.length!== 0) {
+			projectRepository.add(req.body, function(err, data) {
+				console.log(err);
+				res.data = data;
+				res.err = err;
+				next();
+			});
+		} else {
+			console.log ("Most likely you do not fill in all fields");
+		}
 	}, apiResponse);
 };

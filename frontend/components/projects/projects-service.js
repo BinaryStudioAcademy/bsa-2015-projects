@@ -22,5 +22,12 @@ angular.module('projectsApp')
         });
     };
 
+    service.create = function(project) {
+        return $http.post('/api/projects', project).success(function(data) {
+            service.projects.push(data);
+            console.log("Project created!");
+        });
+    };
+
     return service;
 }]);
