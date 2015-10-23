@@ -3,6 +3,7 @@ var Repository = require('./generalRepository');
 var Project = require('../schemas/projectSchema');
 var User  = require('../schemas/userSchema');
 var Technology  = require('../schemas/techSchema');
+var Tag = require('../schemas/tagSchema');
 
 function ProjectRepository() {
 	Repository.prototype.constructor.call(this);
