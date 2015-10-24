@@ -18,7 +18,7 @@
 				description: vm.description,
 				begin: vm.begin,
 				end: vm.end,
-				tags: vm.tags
+				tags: vm.tags.split(',')
 			});
 
 			$state.go('projects');
