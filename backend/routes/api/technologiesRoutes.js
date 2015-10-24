@@ -1,4 +1,4 @@
-var technologyRepository = require('../../repositories/technologyRepository');
+var technologyRepository = require('../../repositories/TechnologyRepository');
 var apiResponse = require('express-api-response');
 
 module.exports = function(app){

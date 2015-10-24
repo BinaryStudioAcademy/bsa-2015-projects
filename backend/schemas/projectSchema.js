@@ -7,7 +7,7 @@ var projectSchema = new Schema({
 	begin : { type: Date, default: Date.now },
 	end : Date,
 	users : [ {type : mongoose.Schema.ObjectId, ref : 'User'} ],
-	tags : [],
+	tags : [{type : mongoose.Schema.ObjectId, ref : 'Tag'}],
 	technologies : [ {type : mongoose.Schema.ObjectId, ref : 'Technology'} ],
 	stage : String,
 	screenshots : [String]
