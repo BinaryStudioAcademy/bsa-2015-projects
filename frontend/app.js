@@ -1,7 +1,7 @@
 var app = angular.module('projectsApp', [
 	'ui.router', 
 	'ui.bootstrap', 
-	'ngAnimate',
+	'ngAnimate'
 ]);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',

@@ -1,0 +1,11 @@
+#msg(ng-show='isMsgActive')
+  .win-wrap
+    .line-top(ng-class="message.type")
+    .msg-wrap
+      h4(ng-bind="message.header")
+      p(ng-bind="message.text")
+    .btn-wrap(ng-show="msgType=='alert'")
+      button.msg-btn.btn-ok(ng-click="close()") OK
+    .btn-wrap(ng-show="msgType=='confirm'")
+      button.msg-btn.btn-ok(ng-click="rejectConfirm()") CANCEL
+      button.msg-btn.btn-ok(ng-click="acceptConfirm()") AGREE
