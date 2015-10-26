@@ -20,6 +20,7 @@
     overflow: hidden
     overflow-y: auto
     box-shadow: 0 0 10px -1px rgba(0,0,0,0.5)
+    padding-bottom: 10px
 
     .line-top
       position: absolute
@@ -29,12 +30,18 @@
       left: 0
       background-color: #333
 
-      &.message
-        background-color: #36be2c
-      &.warning
-        background-color: #ffd518
-      &.error
-        background-color: #ff0000
+    &.message
+      border: 1px solid #3a945b
+      .line-top
+        background-color: #43AC6A
+    &.warning
+      border: 1px solid #de770f
+      .line-top
+        background-color: #f08a24
+    &.error
+      border: 1px solid #de2d0f
+      .line-top
+        background-color: #f04124
 
     .msg-wrap
       box-sizing: border-box

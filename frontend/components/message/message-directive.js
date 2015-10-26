@@ -9,6 +9,7 @@ angular.module('projectsApp')
 
 		link: function(scope, element, atrs){
 
+			var confirmCallback = function(){};
 
 	    var init = function(){
 	    	scope.isMsgActive = false;
@@ -18,7 +19,6 @@ angular.module('projectsApp')
 	    };
 
 	    var startMsg = function(msg, type){
-	    	console.log("alert3", msg, type);
 	      $timeout( function(){
 	        scope.close();
 	        scope.message = msg;
@@ -32,15 +32,30 @@ angular.module('projectsApp')
 	      });
 	    };
 
+	    scope.rejectConfirm = function(){
+	      scope.close();
+	      confirmCallback(false);
+	    };
+
+	    scope.acceptConfirm = function(){
+	      scope.close();
+	      confirmCallback(true);
+	    };
+
 	    scope.close = function(){
 	      $timeout.cancel(scope.closeTime);
 	      init();
 	    };
 
 	    Msg.on('show:alert', function(msg){
-	    	console.log('alert2');
 	      if (!msg) {return scope.close();}
 	      startMsg(msg, "alert");
+	    });
+
+	    Msg.on('show:confirm', function(msg, callback){
+	      msg.autoClose = false;
+	      startMsg(msg, "confirm");
+	      confirmCallback = callback;
 	    });
 		}
 

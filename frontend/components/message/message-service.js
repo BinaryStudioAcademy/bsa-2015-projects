@@ -1,15 +1,17 @@
 angular.module('projectsApp')
 .service('Msg', [function(){
 
-  var message = new EventEmitter();
+  self = this;
 
-  var _typeList = ['message', 'warning', 'error'];
+  self.message = new EventEmitter();
 
-  var _prepareMessage = function(params){
+  self._typeList = ['message', 'warning', 'error'];
+
+  self._prepareMessage = function(params){
     if (!params) {return null;}
 
     var autoClose = params.autoClose === false ? false : true;
-    var type = _.contains(_typeList, params.type) ? params.type : 'message';
+    var type = _.contains(self._typeList, params.type) ? params.type : 'message';
     var msg = {
         text: params.text || "Message from PROJECTS",
         header: params.header || type,
@@ -21,15 +23,19 @@ angular.module('projectsApp')
     if (typeof params === 'string') {msg.text = params;}
 
     return msg;
-
   };
 
-  message.alert = function(params){
-    var msg = _prepareMessage(params);
-    console.log("alert1", msg, this);
-    message.emitEvent('show:alert', [msg]);
+  self.message.alert = function(params){
+    var msg = self._prepareMessage(params);
+    self.message.emitEvent('show:alert', [msg]);
   };
 
-  return message;
+  self.message.confirm = function(params, callback){ 
+    var msg = self._prepareMessage(params);
+    msg.autoClose = false;
+    self.message.emitEvent('show:confirm', [msg, callback]);
+  };
+
+  return self.message;
 
  }]);
