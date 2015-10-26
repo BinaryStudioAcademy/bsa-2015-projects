@@ -10,8 +10,9 @@
 
 			.description-container
 				p.description {{project.description | cut:true:450}}
+			.tech Technologies:
+				p(ng-repeat='tech in project.technologies track by $index')  {{tech}}
 			.button-wrap
 				button.more(class='btn pull-right' ng-click="vm.goToDetail(project._id)") Show more
-			.tech Technologies:
-				p(ng-repeat='tech in project.technologies')  {{tech}}
+
 
