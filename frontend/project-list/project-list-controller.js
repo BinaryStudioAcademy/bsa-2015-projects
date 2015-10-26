@@ -15,20 +15,6 @@
 		};
 
 
-		// Msg.alert('aaaaaaaaaaaaaa!!!!');
-
-		// activate();
-		
-		// function activate() {
-		// 	return getProjects();
-		// }
-
-		// function getProjects(){
-		// 	return projects.getAll().then(function(data) {
-		// 		vm.projects = data;
-		// 		return vm.projects;
-		// 	});
-		// }
 	}
 })();
 
