@@ -3,7 +3,7 @@
 		.page-header
 			h1 Binary studio projects
 			a(ui-sref="create-project") Create new
-		.project-container(ng-repeat="project in vm.projects")
+		.project-container(ng-repeat="project in vm.projects track by $index")
 			a.project-name(ui-sref="project-view({ id: project._id })") {{ project.name }}
 			p.project-date Begin: {{project.begin | date:'shortDate'}}
 				span  EndDate: {{project.end | date: 'shortDate'}}
