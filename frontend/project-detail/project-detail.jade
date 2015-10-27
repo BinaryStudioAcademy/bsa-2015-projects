@@ -3,6 +3,7 @@
 		.page-header
 			h1 Project # {{vm.projectDetail._id}} details
 		.page-wrap
+
 			.detail-block.row
 				.title.col-md-3 Name
 				.value.name.col-md-9(ng-bind="vm.projectDetail.name")
@@ -44,5 +45,6 @@
 
 			.button-wrap
 				button.create(ng-click="") Create new
-				button.edit(ng-click="") Edit
+				button.edit(ng-click="vm.editProject()") Edit
+				button.delete(ng-click="vm.deleteProject()") Delete
 
