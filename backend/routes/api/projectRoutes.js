@@ -1,5 +1,6 @@
 var apiResponse = require('express-api-response');
 var projectRepository = require('../../repositories/projectRepository');
+var isAdmin = require('../../middleware/checkToken');
 
 module.exports = function(app) {
 	app.get('/api/projects/', function(req, res, next) {
@@ -18,7 +19,7 @@ module.exports = function(app) {
 		});
 	}, apiResponse);
 
-	app.post('/api/projects', function(req, res, next) {
+	app.post('/api/projects', isAdmin('admin'), function(req, res, next) {
 		var name = req.body.name;
 		var description = req.body.description;
 		if (name.length!==0 && description.length!== 0) {
