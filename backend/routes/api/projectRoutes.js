@@ -1,6 +1,6 @@
 var apiResponse = require('express-api-response');
 var projectRepository = require('../../repositories/projectRepository');
-
+var hasRole = require('../../middleware/role.js');
 module.exports = function(app) {
 	app.get('/api/projects/', function(req, res, next) {
 		projectRepository.getAll(function(err, data) {
@@ -18,7 +18,7 @@ module.exports = function(app) {
 		});
 	}, apiResponse);
 
-	app.post('/api/projects', function(req, res, next) {
+	app.post('/api/projects', hasRole('admin'), function(req, res, next) {
 		var name = req.body.name;
 		var description = req.body.description;
 		if (name.length!==0 && description.length!== 0) {
