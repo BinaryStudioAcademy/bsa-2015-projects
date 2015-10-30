@@ -6,7 +6,7 @@ var userRepository = require('../repositories/UserRepository');
 module.exports = function(app){
 	app.use(checkToken);
 	
-	app.get('/', function(req, res){
+	app.get('/', function(req, res,next){
 		res.render('index');
 		User.findOne({
 			email: req.decoded.email
